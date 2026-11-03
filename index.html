@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آية في كل شيء | رحلة تفاعلية في عظمة خلق الله</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--green:#0b1d17;--card:#132a22;--gold:#d4af37;--pale:#f3e5ab;--ivory:#f9f8f3;--text:#e0e6e3;--muted:#a3b8b0;--border:rgba(212,175,55,.2)}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{background:var(--green);color:var(--text);font-family:'Tajawal',sans-serif;line-height:1.7;overflow-x:hidden}
+.stars-bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at bottom,#1b2735 0%,#090a0f 100%);overflow:hidden}
+.star{position:absolute;background:white;border-radius:50%;animation:stars linear infinite}
+@keyframes stars{to{transform:translateY(-1500px)}}
+header{position:sticky;top:0;z-index:100;background:rgba(11,29,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.navbar{max-width:1200px;margin:auto;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font:700 1.5rem 'Reem Kufi';color:var(--gold);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:20px;list-style:none}.nav-links a{color:var(--ivory);text-decoration:none}
+.audio-player-nav{display:flex;align-items:center;gap:10px;background:#d4af3718;padding:6px 12px;border:1px solid var(--border);border-radius:30px}
+.audio-info{font-size:.82rem;color:var(--pale)}
+.play-btn{background:var(--gold);color:var(--green);border:0;width:35px;height:35px;border-radius:50%;cursor:pointer}
+.page-view{display:none;max-width:1200px;margin:35px auto;padding:0 20px;animation:fade .4s}.page-view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.hero{min-height:75vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px;border-radius:20px;margin:20px 0 40px;background:linear-gradient(#0d1b2a66,#0b1d17e8),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85') center/cover}
+h1,.section-title,.world-body h3,.modal-title{font-family:'Amiri',serif}
+.hero h1{font-size:clamp(3rem,7vw,5rem);color:var(--gold);text-shadow:0 4px 15px #000}
+.tagline{font:italic clamp(1.3rem,3vw,2rem) 'Amiri';color:var(--ivory);max-width:800px;margin:12px 0 30px}
+.cta-btn{background:linear-gradient(45deg,var(--gold),#b38f28);color:var(--green);padding:13px 32px;border-radius:40px;text-decoration:none;font-weight:800}
+.section-title{text-align:center;font-size:2.6rem;color:var(--gold);margin:45px 0 10px}
+.section-desc{text-align:center;color:var(--muted);margin-bottom:35px}
+.worlds-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;padding-bottom:70px}
+.world-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:.3s;display:flex;flex-direction:column}
+.world-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 15px 30px #0008}
+.world-img{width:100%;height:205px;object-fit:cover}.world-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.world-body h3{font-size:1.55rem;color:var(--pale);margin-bottom:8px}.world-body p{color:var(--muted);margin-bottom:18px;flex:1}
+.enter-btn,.back-home-btn{border:1px solid var(--gold);color:var(--gold);background:transparent;padding:10px;border-radius:10px;text-align:center;cursor:pointer;font-weight:bold}
+.world-card:hover .enter-btn,.back-home-btn:hover{background:var(--gold);color:var(--green)}
+.back-home-btn{padding:10px 22px;border-radius:30px;margin-bottom:25px}
+.interactive-world-box,.solar-system-container{background:#0d1b2acc;border:1px solid var(--border);border-radius:22px;padding:25px;margin-bottom:45px}
+.verse-box{background:#d4af3712;border-right:4px solid var(--gold);padding:22px;border-radius:12px;margin:20px 0 28px;text-align:center}
+.verse-text{font:1.7rem/2.1 'Amiri';color:var(--pale)}.verse-ref{color:var(--gold);font-weight:bold}
+.interactive-btns-grid,.planets-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:20px 0}
+.inter-btn,.planet-btn{background:var(--card);border:1px solid var(--border);color:var(--text);padding:12px 8px;border-radius:10px;cursor:pointer;font-family:inherit}
+.inter-btn.active,.inter-btn:hover,.planet-btn.active,.planet-btn:hover{background:var(--gold);color:var(--green)}
+.inter-details-box,.planet-details-box{background:#ffffff08;padding:22px;border-radius:14px}
+.inter-details-box h3,.planet-details-box h3{font:1.8rem 'Amiri';color:var(--gold);margin-bottom:8px}
+.quiz-box{margin-top:25px;padding:22px;border:1px dashed var(--gold);border-radius:14px;background:#d4af370d}
+.quiz-options{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.quiz-opt-btn{background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 18px;border-radius:8px;cursor:pointer}
+.solar-canvas-wrapper{height:380px;background:#050b14;border-radius:15px;overflow:hidden;margin:20px 0}#solarCanvas{width:100%;height:100%}
+.modal{display:none;position:fixed;inset:0;z-index:1000;background:#000d;overflow-y:auto;padding:30px 15px}
+.modal-content{max-width:850px;margin:auto;background:var(--card);border:1px solid var(--gold);border-radius:20px;overflow:hidden;position:relative}
+.close-btn{position:absolute;top:15px;left:15px;width:40px;height:40px;border:0;border-radius:50%;background:#0009;color:white;cursor:pointer}
+.modal-hero-img{width:100%;height:300px;object-fit:cover}.modal-body-content{padding:28px}.modal-title{text-align:center;color:var(--gold);font-size:2.3rem;margin-bottom:18px}
+.info-section{margin:22px 0}.info-section h4{color:var(--gold);font-size:1.2rem;margin-bottom:8px}.info-section p{line-height:1.9}
+footer{background:#06110d;border-top:1px solid var(--border);padding:35px 20px;text-align:center;margin-top:55px}
+.designer-signature{margin-top:20px;padding-top:15px;border-top:1px solid #ffffff20;font:1.2rem 'Reem Kufi';color:var(--gold)}
+@media(max-width:760px){.nav-links{display:none}.navbar{flex-wrap:wrap}.audio-info{font-size:.72rem}.hero{min-height:65vh}.solar-canvas-wrapper{height:270px}.modal-hero-img{height:210px}.modal-body-content{padding:18px}.verse-text{font-size:1.35rem}}
+</style>
+</head>
+<body>
+<div class="stars-bg" id="starsBg"></div>
+<header><div class="navbar">
+<a href="#" class="logo" onclick="switchPage('home')">آية في كل شيء</a>
+<ul class="nav-links"><li><a href="#" onclick="switchPage('home')">الرئيسية</a></li><li><a href="#worlds" onclick="switchPage('home')">عوالم التفكر</a></li></ul>
+<div class="audio-player-nav"><span class="audio-info">سورة الملك - د. محمد اللحيدان</span><button class="play-btn" id="audioToggleBtn" title="تشغيل التلاوة"><i class="fa-solid fa-play" id="playIcon"></i></button></div>
+<audio id="quranAudio" src="https://server8.mp3quran.net/lhdan/067.mp3" preload="none"></audio>
+</div></header>
+
+<div id="homePage" class="page-view active">
+<section class="hero"><h1>آية في كل شيء</h1><p class="tagline">«تأمّل قدرة الرحمن، وانظر… سيهديك التأمل إلى الصواب»</p><a href="#worlds" class="cta-btn">ابدأ رحلة التأمل　<i class="fa-solid fa-compass"></i></a></section>
+<section id="worlds"><h2 class="section-title">عوالم التفكر والتأمل</h2><p class="section-desc">اختر عالمًا لاستكشاف آيات الله في الكون والحياة</p><div class="worlds-container" id="worldsGrid"></div></section>
+</div>
+
+<div id="humanPage" class="page-view">
+<button class="back-home-btn" onclick="switchPage('home')">← العودة للرئيسية</button><h2 class="section-title">عالم جسم الإنسان</h2><p class="section-desc">﴿وَفِي أَنْفُسِكُمْ أَفَلَا تُبْصِرُونَ﴾ — الذاريات: 21</p>
+<div class="interactive-world-box"><div class="interactive-btns-grid" id="humanBtnsGrid"></div><div class="inter-details-box"><h3 id="humanTitle">اختر عضوًا للاستكشاف</h3><p id="humanDesc">اضغط على أحد الأعضاء للتعرف على وظيفته.</p><div id="humanExtra"></div></div>
+<div class="quiz-box"><h4 style="color:var(--gold)">اختبار قصير للتأمل</h4><p id="humanQuizQ">أي عضو يضخ الدم إلى أجزاء الجسم؟</p><div class="quiz-options" id="humanQuizOpts"><button class="quiz-opt-btn" onclick="checkHumanQuiz(0)">الدماغ</button><button class="quiz-opt-btn" onclick="checkHumanQuiz(1)">القلب</button><button class="quiz-opt-btn" onclick="checkHumanQuiz(2)">العين</button></div><p id="humanQuizRes" style="margin-top:10px"></p></div></div>
+</div>
+
+<div id="oceanPage" class="page-view">
+<button class="back-home-btn" onclick="switchPage('home')">← العودة للرئيسية</button><h2 class="section-title">عالم البحار والمحيطات</h2><p class="section-desc">رحلة من سطح البحر إلى أعماقه تفكرًا في آيات الله</p>
+<div class="interactive-world-box" id="oceanBox"><div class="verse-box"><div class="verse-text">﴿وَهُوَ الَّذِي سَخَّرَ الْبَحْرَ لِتَأْكُلُوا مِنْهُ لَحْمًا طَرِيًّا﴾</div><div class="verse-ref">سورة النحل: 14</div></div><div class="interactive-btns-grid" id="oceanBtnsGrid"></div><div class="inter-details-box"><h3 id="oceanTitle">اختر طبقة عمق للاستكشاف</h3><p id="oceanDesc">انتقل عبر مستويات الأعماق لتكتشف تغير الإضاءة والمخلوقات.</p><div id="oceanExtra"></div></div><p style="text-align:center;color:var(--pale);margin-top:20px">«كلما ازداد الإنسان معرفةً بهذا العالم، ازداد إدراكًا لعظمة الخالق سبحانه»</p></div>
+</div>
+
+<div id="planetsPage" class="page-view">
+<button class="back-home-btn" onclick="switchPage('home')">← العودة للرئيسية</button><h2 class="section-title">عالم الكواكب والفضاء</h2><p class="section-desc">محاكاة تعليمية تفاعلية لتأمل حركة النظام الشمسي وبديع صنع الله</p>
+<div class="solar-system-container"><div class="verse-box"><div class="verse-text">﴿وَهُوَ الَّذِي خَلَقَ اللَّيْلَ وَالنَّهَارَ وَالشَّمْسَ وَالْقَمَرَ ۖ كُلٌّ فِي فَلَكٍ يَسْبَحُونَ﴾</div><div class="verse-ref">سورة الأنبياء: 33</div></div><div class="solar-canvas-wrapper"><canvas id="solarCanvas"></canvas></div><div class="planets-grid" id="planetsBtnGrid"></div><div class="planet-details-box"><h3 id="planetName">اضغط على أي كوكب</h3><p id="planetDesc">استكشف خصائص كواكب المجموعة الشمسية.</p></div></div>
+</div>
+
+<div class="modal" id="detailsModal"><div class="modal-content"><button class="close-btn" onclick="closeModal()">✕</button><img class="modal-hero-img" id="modalImg" src="" alt="مشهد من العالم"><div class="modal-body-content"><h2 class="modal-title" id="modalTitle"></h2><div class="verse-box"><div class="verse-text" id="modalVerse"></div><div class="verse-ref" id="modalRef"></div></div><div class="info-section"><h4>📖 التفسير والشرح</h4><p id="modalTafsir"></p></div><div class="info-section"><h4>🔬 المعلومة العلمية</h4><p id="modalScience"></p></div><div class="info-section"><h4>♡ لفتة إيمانية للتأمل</h4><p id="modalReflection"></p></div></div></div></div>
+
+<footer><p>موقع «آية في كل شيء» - منصة تعليمية تفاعلية تهدف لنشر الثقافة الإيمانية والتفكر في خلق الله.</p><div class="designer-signature">إعداد وتصميم ضحى إدلبي</div></footer>
+
+<script>
+function switchPage(id){document.querySelectorAll('.page-view').forEach(p=>p.classList.remove('active'));document.getElementById(id+'Page').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='planets')resizeCanvas()}
+const stars=document.getElementById('starsBg');for(let i=0;i<150;i++){let s=document.createElement('i');s.className='star';let z=Math.random()*3+1;s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()};animation-duration:${20+Math.random()*50}s`;stars.appendChild(s)}
+const worlds=[
+{id:'human',title:'عالم جسم الإنسان',desc:'رحلة داخل جسم الإنسان لاكتشاف أسرار الأعضاء ووظائفها.',img:'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80',targetPage:'human'},
+{id:'ocean',title:'عالم البحار والمحيطات',desc:'رحلة من سطح البحر إلى أعماقه واكتشاف مخلوقاته.',img:'https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=900&q=80',targetPage:'ocean'},
+{id:'planets',title:'عالم الكواكب والفضاء',desc:'محاكاة تعليمية تفاعلية لتأمل حركة النظام الشمسي.',img:'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=900&q=80',targetPage:'planets'},
+{id:'sky',title:'عالم السماء والغيوم',desc:'تأمل بناء السماء وجمال الغيوم واتساعها.',img:'https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=900&q=80',verse:'﴿أَفَلَمْ يَنظُرُوا إِلَى السَّمَاءِ فَوْقَهُمْ كَيْفَ بَنَيْنَاهَا وَزَيَّنَّاهَا وَمَا لَهَا مِن فُرُوجٍ﴾',ref:'سورة ق: 6',tafsir:'يدعو الله سبحانه إلى النظر في السماء المرفوعة، وكيف أحكم خلقها وزيّنها.',science:'يتكون الغلاف الجوي للأرض من طبقات متعددة، وله دور مهم في تنظيم الحرارة والحماية من كثير من الأخطار الفضائية.',reflection:'حين ترفع بصرك إلى السماء، تأمل اتساعها وإحكام خلقها، واستحضر عظمة الخالق سبحانه.'},
+{id:'earth',title:'عالم الأرض والأنهار',desc:'تأمل الأرض والماء والأنهار والنباتات.',img:'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80',verse:'﴿وَوَضَعَ الْأَرْضَ لِلْأَنَامِ * فِيهَا فَاكِهَةٌ وَالنَّخْلُ ذَاتُ الْأَكْمَامِ﴾',ref:'سورة الرحمن: 10-11',tafsir:'بسط الله الأرض وهيأها لتكون مستقراً صالحاً لحياة البشر وسائر الكائنات.',science:'تضم الأرض أنظمة بيئية ومائية متنوعة تدعم حياة أعداد هائلة من الكائنات.',reflection:'تأمل تنوع الأرزاق والنباتات، واستشعر فضل الله ورحمته.'},
+{id:'rain',title:'عالم المطر والثلوج',desc:'رحلة المطر من السحاب إلى الأرض.',img:'https://images.unsplash.com/photo-1519692933481-e162a57d6721?auto=format&fit=crop&w=900&q=80',verse:'﴿وَأَنزَلْنَا مِنَ السَّمَاءِ مَاءً طَهُورًا * لِنُحْيِيَ بِهِ بَلْدَةً مَّيْتًا﴾',ref:'سورة الفرقان: 48-49',tafsir:'يبين الله نعمة إنزال الماء الطهور الذي به تحيا الأرض.',science:'تنتقل المياه في دورة مستمرة بين سطح الأرض والغلاف الجوي، ويسهم الثلج في تخزين المياه العذبة.',reflection:'نزول المطر يذكّر بنعمة الله ورحمته وإحياء الأرض بعد جدبها.'},
+{id:'night',title:'عالم الليل والنجوم',desc:'تأمل الليل والنجوم وتعاقب الليل والنهار.',img:'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&w=900&q=80',verse:'﴿إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ﴾',ref:'سورة آل عمران: 190',tafsir:'في خلق السماوات والأرض وتعاقب الليل والنهار دلائل لأولي العقول.',science:'ينشأ تعاقب الليل والنهار بسبب دوران الأرض حول محورها أمام الشمس.',reflection:'الليل سكن، والنجوم زينة للسماء؛ وفيهما مجال للتفكر والخشوع.'}
+];
+const grid=document.getElementById('worldsGrid');worlds.forEach(w=>{let c=document.createElement('article');c.className='world-card';c.innerHTML=`<img class="world-img" src="${w.img}" alt="${w.title}"><div class="world-body"><h3>${w.title}</h3><p>${w.desc}</p><div class="enter-btn">استكشف العالم ←</div></div>`;c.onclick=()=>w.targetPage?switchPage(w.targetPage):openModal(w);grid.appendChild(c)});
+function openModal(w){['Title','Verse','Ref','Tafsir','Science','Reflection'].forEach((k,i)=>document.getElementById('modal'+k).textContent=[w.title,w.verse,w.ref,w.tafsir,w.science,w.reflection][i]);document.getElementById('modalImg').src=w.img;document.getElementById('detailsModal').style.display='block'}
+function closeModal(){document.getElementById('detailsModal').style.display='none'}window.addEventListener('click',e=>{if(e.target.id==='detailsModal')closeModal()});
+const audio=document.getElementById('quranAudio'),play=document.getElementById('audioToggleBtn'),icon=document.getElementById('playIcon');play.onclick=()=>{if(audio.paused){audio.play().then(()=>{icon.className='fa-solid fa-pause'}).catch(()=>alert('تعذر تشغيل التلاوة. تحققي من اتصال الإنترنت.'))}else{audio.pause();icon.className='fa-solid fa-play'}};audio.onended=()=>icon.className='fa-solid fa-play';
+const human=[{name:'القلب 🫀',title:'القلب: محطة ضخ الدم',desc:'يضخ القلب الدم عبر شبكة واسعة من الأوعية الدموية، موصلاً الأكسجين والمواد الغذائية إلى أنحاء الجسم.',extra:'لفتة إيمانية: انتظام نبضات القلب نعمة تستحق الشكر والتأمل.'},{name:'الدماغ 🧠',title:'الدماغ: مركز التحكم',desc:'يعالج الدماغ المعلومات وينظم الذاكرة والإدراك والحركة والحواس عبر شبكة معقدة من الخلايا العصبية.',extra:'لفتة إيمانية: تأمل نعمة العقل والتعلم والإدراك.'},{name:'العين 👁️',title:'العين: نعمة الإبصار',desc:'تستقبل العين الضوء وتركز الصور على الشبكية، ثم تنتقل الإشارات العصبية إلى الدماغ لمعالجتها.',extra:'لفتة إيمانية: تأمل نعمة البصر وما تتيح لك رؤيته من آيات الله.'},{name:'الجهاز العصبي ⚡',title:'الجهاز العصبي: شبكة الإشارات',desc:'ينقل الجهاز العصبي الإشارات بين الدماغ وأجزاء الجسم، ويسهم في تنسيق الحركة والإحساس والاستجابة.',extra:'لفتة إيمانية: في دقة الإحساس والاستجابة مجال للتفكر في الخلق.'}];
+function fillButtons(data,id,fn){let el=document.getElementById(id);data.forEach((x,i)=>{let b=document.createElement('button');b.className='inter-btn';b.textContent=x.name;b.onclick=()=>fn(i);el.appendChild(b)})}
+function selectHuman(i){document.querySelectorAll('#humanBtnsGrid button').forEach((b,j)=>b.classList.toggle('active',i===j));humanTitle.textContent=human[i].title;humanDesc.textContent=human[i].desc;humanExtra.textContent=human[i].extra}
+fillButtons(human,'humanBtnsGrid',selectHuman);selectHuman(0);
+function checkHumanQuiz(i){let r=document.getElementById('humanQuizRes');r.textContent=i===1?'إجابة صحيحة! القلب يضخ الدم إلى أنحاء الجسم.':'ليست هذه الإجابة الصحيحة، حاول مرة أخرى.';r.style.color=i===1?'#9be7a1':'#ffb0a8'}
+const ocean=[{name:'سطح البحر ☀️',title:'سطح البحر: الضوء والأمواج',desc:'تصل أشعة الشمس إلى الطبقة السطحية، وتعيش فيها كائنات بحرية كثيرة وتتحرك الأمواج بفعل الرياح.',extra:'تأمل تنوع الحياة في هذه البيئة الواسعة.',bg:'#0a3150'},{name:'الشعاب المرجانية 🪸',title:'الشعاب المرجانية: موائل بحرية',desc:'توفر الشعاب المرجانية مأوى وغذاءً لأنواع كثيرة من الكائنات البحرية، وتتميز بتنوعها الحيوي.',extra:'تنوع المخلوقات في موطن واحد يدعو إلى التأمل.',bg:'#0a403e'},{name:'أعماق البحار 🦑',title:'أعماق البحار: عالم قليل الضوء',desc:'تقل أشعة الشمس تدريجياً مع العمق، وتعيش في المناطق العميقة كائنات متكيفة مع البرودة والضغط وقلة الغذاء.',extra:'سبحان من خلق الكائنات وهيأ لها أسباب البقاء.',bg:'#050f20'},{name:'الكائنات البحرية 🐋',title:'الكائنات البحرية: تنوع مدهش',desc:'تضم البحار كائنات متنوعة الأحجام والأشكال، من الكائنات الدقيقة إلى الحيتان الكبيرة.',extra:'تأمل تنوع الخلق واختلاف أحجام المخلوقات وطرائق عيشها.',bg:'#020a14'}];
+function selectOcean(i){document.querySelectorAll('#oceanBtnsGrid button').forEach((b,j)=>b.classList.toggle('active',i===j));oceanTitle.textContent=ocean[i].title;oceanDesc.textContent=ocean[i].desc;oceanExtra.textContent=ocean[i].extra;oceanBox.style.background=ocean[i].bg}
+fillButtons(ocean,'oceanBtnsGrid',selectOcean);selectOcean(0);
+const planets=[{name:'عطارد',color:'#a5a5a5',size:5,r:48,speed:.04,desc:'أقرب الكواكب إلى الشمس، وسطحه صخري مليء بالفوهات.'},{name:'الزهرة',color:'#e3bb76',size:8,r:70,speed:.03,desc:'كوكب شديد الحرارة، وله غلاف جوي كثيف غني بثاني أكسيد الكربون.'},{name:'الأرض',color:'#4b9cd3',size:9,r:95,speed:.025,desc:'كوكبنا، ويتميز بوجود الماء السائل والحياة المعروفة.'},{name:'المريخ',color:'#c1440e',size:7,r:120,speed:.02,desc:'الكوكب الأحمر، ويكتسب لونه من أكاسيد الحديد على سطحه.'},{name:'المشتري',color:'#b07f35',size:16,r:150,speed:.012,desc:'أكبر كواكب المجموعة الشمسية، وهو عملاق غازي.'},{name:'زحل',color:'#e2bf7d',size:13,r:180,speed:.009,desc:'يشتهر بنظام حلقاته الواسع المكوّن أساساً من الجليد والصخور.'},{name:'أورانوس',color:'#6bbbd1',size:11,r:210,speed:.006,desc:'عملاق جليدي يتميز بميل محوره الكبير.'},{name:'نبتون',color:'#274687',size:10,r:238,speed:.004,desc:'كوكب أزرق بعيد، وتُرصد في غلافه الجوي رياح شديدة.'}];
+function selectPlanet(i){document.querySelectorAll('.planet-btn').forEach((b,j)=>b.classList.toggle('active',i===j));planetName.textContent=planets[i].name;planetDesc.textContent=planets[i].desc}
+planets.forEach((p,i)=>{let b=document.createElement('button');b.className='planet-btn';b.textContent=p.name;b.onclick=()=>selectPlanet(i);planetsBtnGrid.appendChild(b)});selectPlanet(2);
+const canvas=document.getElementById('solarCanvas'),ctx=canvas.getContext('2d');function resizeCanvas(){canvas.width=canvas.parentElement.clientWidth;canvas.height=canvas.parentElement.clientHeight}window.addEventListener('resize',resizeCanvas);resizeCanvas();let angle=0;
+function animate(){if(canvas.width&&canvas.height){ctx.clearRect(0,0,canvas.width,canvas.height);let cx=canvas.width/2,cy=canvas.height/2,scale=Math.min(canvas.width,canvas.height)/520;ctx.beginPath();ctx.arc(cx,cy,17,0,Math.PI*2);ctx.fillStyle='#ffcc00';ctx.shadowBlur=25;ctx.shadowColor='#ffcc00';ctx.fill();ctx.shadowBlur=0;planets.forEach(p=>{let r=p.r*scale,a=angle*p.speed*40;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='#ffffff22';ctx.stroke();ctx.beginPath();ctx.arc(cx+r*Math.cos(a),cy+r*Math.sin(a),Math.max(p.size*scale,2.5),0,Math.PI*2);ctx.fillStyle=p.color;ctx.fill()});angle+=.006}requestAnimationFrame(animate)}animate();
+</script>
+</body>
+</html>
